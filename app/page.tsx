@@ -31,18 +31,6 @@ function StarRating({ rating }: { rating: number }) {
   );
 }
 
-function BadgePill({ badge }: { badge: string }) {
-  const colors: Record<string, string> = {
-    Bestseller: "bg-brand/20 text-brand",
-    "Host Nation": "bg-gold/20 text-gold",
-    New: "bg-success/20 text-success",
-  };
-  return (
-    <span className={`inline-block text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded-md ${colors[badge] ?? "bg-white/10 text-white/60"}`}>
-      {badge}
-    </span>
-  );
-}
 
 function JerseyCard({ jersey }: { jersey: Jersey }) {
   return (
@@ -65,13 +53,6 @@ function JerseyCard({ jersey }: { jersey: Jersey }) {
           className="object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-200"
           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
         />
-        {jersey.badges.length > 0 && (
-          <div className="absolute top-2 left-2 flex flex-col gap-1">
-            {jersey.badges.map((b) => (
-              <BadgePill key={b} badge={b} />
-            ))}
-          </div>
-        )}
       </div>
       <div className="p-3">
         <p className="text-xs text-white/40 mb-0.5">
@@ -178,9 +159,6 @@ export default function HomePage() {
                   <Image src={jersey.images[0]} alt={jersey.name} fill className="object-cover" sizes="80px" />
                 </div>
                 <div className="flex-1 min-w-0 py-1">
-                  <div className="flex gap-1 mb-1.5 flex-wrap">
-                    {jersey.badges.map((b) => <BadgePill key={b} badge={b} />)}
-                  </div>
                   <p className="font-medium text-white text-sm leading-tight">{jersey.name}</p>
                   <p className="text-white/40 text-xs mt-0.5">{jersey.colorway}</p>
                   <p className="font-bold text-white tabular-nums mt-2">{formatCAD(jersey.price)}</p>
