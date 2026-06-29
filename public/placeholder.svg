@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="533" viewBox="0 0 400 533" fill="none">
+  <rect width="400" height="533" fill="#F2F2F2"/>
+  <rect x="160" y="200" width="80" height="100" rx="4" fill="#E0E0E0"/>
+  <path d="M160 200 L200 160 L240 200" stroke="#E0E0E0" stroke-width="3" fill="none"/>
+  <text x="200" y="340" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#AAAAAA">Jersey</text>
+</svg>
