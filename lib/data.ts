@@ -305,6 +305,7 @@ export const jerseys: Jersey[] = [
     ],
     images: [
       "/jerseys/france-home-1.jpeg",
+      "/jerseys/france-home-2.jpeg",
     ],
 
   },
@@ -339,6 +340,7 @@ export const jerseys: Jersey[] = [
     ],
     images: [
       "/jerseys/argentina-home-1.jpeg",
+      "/jerseys/argentina-home-2.png",
     ],
   },
   {
@@ -372,6 +374,7 @@ export const jerseys: Jersey[] = [
     ],
     images: [
       "/jerseys/argentina-away-1.jpeg",
+      "/jerseys/argentina-away-2.jpeg",
     ],
   },
   {
