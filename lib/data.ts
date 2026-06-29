@@ -371,10 +371,7 @@ export const jerseys: Jersey[] = [
       { size: "2XL", inStock: true },
     ],
     images: [
-      "/placeholder.svg",
-      "/placeholder.svg",
-      "/placeholder.svg",
-      "/placeholder.svg",
+      "/jerseys/argentina-away-1.jpeg",
     ],
   },
   {
@@ -407,10 +404,8 @@ export const jerseys: Jersey[] = [
       { size: "2XL", inStock: true },
     ],
     images: [
-      "/placeholder.svg",
-      "/placeholder.svg",
-      "/placeholder.svg",
-      "/placeholder.svg",
+      "/jerseys/portugal-home-1.jpeg",
+      "/jerseys/portugal-home-2.jpeg",
     ],
   },
   {
