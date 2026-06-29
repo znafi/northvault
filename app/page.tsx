@@ -91,12 +91,6 @@ function JerseyCard({ jersey }: { jersey: Jersey }) {
   );
 }
 
-const regions = [
-  { name: "South America", href: "/shop?region=South+America", emoji: "🌎", desc: "Brazil, Argentina & more" },
-  { name: "Europe", href: "/shop?region=Europe", emoji: "🌍", desc: "France, Germany, Portugal & more" },
-  { name: "Africa", href: "/shop?region=Africa", emoji: "🌍", desc: "Morocco, Egypt & more" },
-  { name: "North America", href: "/shop?region=North+America", emoji: "🌎", desc: "Canada, Mexico & more" },
-];
 
 const trustItems = [
   { icon: <Truck size={22} />, title: "Ships from Canada", desc: "No surprise duties or import fees" },
@@ -212,28 +206,6 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
             {bestsellers.map((j) => <JerseyCard key={j.id} jersey={j} />)}
-          </div>
-        </div>
-      </section>
-
-      {/* SHOP BY REGION */}
-      <section className="bg-surface py-16 px-4 border-b border-line-dark">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-10">
-            <p className="text-white/40 font-archivo font-bold uppercase tracking-[0.2em] text-xs mb-1.5">Browse</p>
-            <h2 className="font-archivo font-black uppercase text-white text-3xl sm:text-4xl tracking-tight leading-none">SHOP BY REGION</h2>
-          </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-            {regions.map((r) => (
-              <Link key={r.name} href={r.href} className="group bg-white/5 rounded-xl border border-line-dark p-5 flex flex-col gap-2 hover:border-brand hover:bg-white/10 transition-all duration-200">
-                <span className="text-3xl">{r.emoji}</span>
-                <p className="font-archivo font-bold uppercase tracking-wide text-white text-sm">{r.name}</p>
-                <p className="text-xs text-white/50 leading-snug">{r.desc}</p>
-                <span className="text-brand text-xs font-semibold mt-auto flex items-center gap-1 group-hover:gap-2 transition-all">
-                  Shop <ArrowRight size={12} />
-                </span>
-              </Link>
-            ))}
           </div>
         </div>
       </section>

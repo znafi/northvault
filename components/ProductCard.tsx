@@ -130,11 +130,6 @@ export function ProductCard({ jersey, className }: ProductCardProps) {
           className={cn("object-cover transition-opacity duration-200", hovering ? "opacity-100" : "opacity-0")}
           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
         />
-        {jersey.badges.length > 0 && (
-          <div className="absolute top-2 left-2 flex flex-col gap-1">
-            {jersey.badges.map((b) => <BadgePill key={b} badge={b} />)}
-          </div>
-        )}
         <button
           onClick={(e) => { e.preventDefault(); setShowSizePicker(true); }}
           className={cn(

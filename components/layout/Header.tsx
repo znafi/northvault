@@ -7,13 +7,6 @@ import { Logo } from "@/components/Logo";
 import { useCart } from "@/contexts/CartContext";
 import { cn } from "@/lib/utils";
 
-const navLinks = [
-  { href: "/shop", label: "Shop All" },
-  { href: "/shop?type=Home", label: "Home Kits" },
-  { href: "/shop?type=Away", label: "Away Kits" },
-  { href: "/shop?region=North+America&country=Canada", label: "Host Nation" },
-  { href: "/shop?sort=bestseller", label: "Bestsellers" },
-];
 
 export function Header() {
   const { itemCount, openCart } = useCart();
@@ -38,19 +31,6 @@ export function Header() {
         <Link href="/" className="flex-shrink-0" aria-label="Northvault home">
           <Logo variant="light" withIcon size="md" />
         </Link>
-
-        {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-6 ml-8 flex-1">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-white/80 hover:text-white transition-colors whitespace-nowrap"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
 
         {/* Right Icons */}
         <div className="ml-auto flex items-center gap-2">
@@ -99,16 +79,13 @@ export function Header() {
       {mobileOpen && (
         <nav className="lg:hidden border-t border-white/10 mt-2">
           <div className="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="py-2 px-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-md transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
+            <Link
+              href="/shop"
+              onClick={() => setMobileOpen(false)}
+              className="py-2 px-2 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-md transition-colors"
+            >
+              Shop
+            </Link>
             <Link
               href="/account"
               onClick={() => setMobileOpen(false)}
