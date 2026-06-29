@@ -102,13 +102,8 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ mode: "stripe", redirectUrl: session.url });
   } catch (err) {
-    console.error("Stripe error:", err);
-    // Fallback to demo on Stripe failure
-    const orderId = generateOrderId();
-    return NextResponse.json({
-      mode: "demo",
-      orderId,
-      redirectUrl: `/order/success?orderId=${orderId}&demo=1&email=${encodeURIComponent(email)}&total=${total.toFixed(2)}`,
-    });
+    const message = err instanceof Error ? err.message : String(err);
+    console.error("Stripe error:", message);
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }

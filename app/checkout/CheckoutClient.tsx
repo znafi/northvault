@@ -89,14 +89,17 @@ export function CheckoutClient() {
         body: JSON.stringify({ lines: state.lines, promoCode: state.promoCode, shippingMethod: form.shippingMethod, email: form.email }),
       });
       const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error ?? `Server error ${res.status}`);
+      }
       if (data.redirectUrl) {
         clear();
         window.location.href = data.redirectUrl;
       } else {
         throw new Error("No redirect URL returned");
       }
-    } catch {
-      setSubmitError("Something went wrong. Please try again.");
+    } catch (err) {
+      setSubmitError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
       setSubmitting(false);
     }
   }
@@ -235,36 +238,48 @@ export function CheckoutClient() {
                   Payment
                 </h2>
 
-                {!hasStripe && (
-                  <div className="mb-3 bg-gold/10 border border-gold/30 rounded-xl p-3 flex items-start gap-2">
-                    <AlertCircle size={15} className="text-gold mt-0.5 flex-shrink-0" />
-                    <p className="text-xs text-gold/90"><strong>Demo mode</strong> — no real payment processed. Add your Stripe keys to enable real payments. Enter any card details to proceed.</p>
+                {hasStripe ? (
+                  <div className="bg-surface rounded-xl border border-line-dark p-5 space-y-3">
+                    <div className="flex items-center gap-2 text-xs text-white/40">
+                      <Lock size={12} /> <span>Encrypted and secure — powered by Stripe</span>
+                    </div>
+                    <p className="text-sm text-white/60">You'll enter your card details on Stripe's secure payment page after clicking Place Order.</p>
+                    <div className="flex gap-2 text-xs text-white/30">
+                      <Shield size={12} className="mt-0.5 flex-shrink-0" />
+                      <span>Your payment info is never stored on our servers.</span>
+                    </div>
                   </div>
+                ) : (
+                  <>
+                    <div className="mb-3 bg-gold/10 border border-gold/30 rounded-xl p-3 flex items-start gap-2">
+                      <AlertCircle size={15} className="text-gold mt-0.5 flex-shrink-0" />
+                      <p className="text-xs text-gold/90"><strong>Demo mode</strong> — no real payment processed. Enter any card details to proceed.</p>
+                    </div>
+                    <div className="bg-surface rounded-xl border border-line-dark p-5 space-y-4">
+                      <div className="flex items-center gap-2 text-xs text-white/40">
+                        <Lock size={12} /> <span>Encrypted and secure</span>
+                      </div>
+                      <Field label="Card number *" id="cardNumber" error={errors.cardNumber}>
+                        <input id="cardNumber" type="text" inputMode="numeric" value={form.cardNumber} onChange={(e) => { const v = e.target.value.replace(/\D/g, "").slice(0, 16); set("cardNumber", v.replace(/(\d{4})/g, "$1 ").trim()); }} placeholder="1234 5678 9012 3456" className={inputCls(errors.cardNumber)} />
+                      </Field>
+                      <div className="grid grid-cols-3 gap-3">
+                        <Field label="Expiry *" id="cardExpiry" error={errors.cardExpiry}>
+                          <input id="cardExpiry" type="text" value={form.cardExpiry} onChange={(e) => { let v = e.target.value.replace(/\D/g, "").slice(0, 4); if (v.length > 2) v = v.slice(0, 2) + "/" + v.slice(2); set("cardExpiry", v); }} placeholder="MM/YY" className={inputCls(errors.cardExpiry)} />
+                        </Field>
+                        <Field label="CVC *" id="cardCvc" error={errors.cardCvc}>
+                          <input id="cardCvc" type="text" inputMode="numeric" value={form.cardCvc} onChange={(e) => set("cardCvc", e.target.value.replace(/\D/g, "").slice(0, 4))} placeholder="123" className={inputCls(errors.cardCvc)} />
+                        </Field>
+                        <Field label="Name on card *" id="cardName" error={errors.cardName}>
+                          <input id="cardName" type="text" value={form.cardName} onChange={(e) => set("cardName", e.target.value)} className={inputCls(errors.cardName)} />
+                        </Field>
+                      </div>
+                      <div className="flex gap-2 text-xs text-white/30">
+                        <Shield size={12} className="mt-0.5 flex-shrink-0" />
+                        <span>Your payment info is never stored on our servers.</span>
+                      </div>
+                    </div>
+                  </>
                 )}
-
-                <div className="bg-surface rounded-xl border border-line-dark p-5 space-y-4">
-                  <div className="flex items-center gap-2 text-xs text-white/40">
-                    <Lock size={12} /> <span>Encrypted and secure</span>
-                  </div>
-                  <Field label="Card number *" id="cardNumber" error={errors.cardNumber}>
-                    <input id="cardNumber" type="text" inputMode="numeric" value={form.cardNumber} onChange={(e) => { const v = e.target.value.replace(/\D/g, "").slice(0, 16); set("cardNumber", v.replace(/(\d{4})/g, "$1 ").trim()); }} placeholder="1234 5678 9012 3456" className={inputCls(errors.cardNumber)} />
-                  </Field>
-                  <div className="grid grid-cols-3 gap-3">
-                    <Field label="Expiry *" id="cardExpiry" error={errors.cardExpiry}>
-                      <input id="cardExpiry" type="text" value={form.cardExpiry} onChange={(e) => { let v = e.target.value.replace(/\D/g, "").slice(0, 4); if (v.length > 2) v = v.slice(0, 2) + "/" + v.slice(2); set("cardExpiry", v); }} placeholder="MM/YY" className={inputCls(errors.cardExpiry)} />
-                    </Field>
-                    <Field label="CVC *" id="cardCvc" error={errors.cardCvc}>
-                      <input id="cardCvc" type="text" inputMode="numeric" value={form.cardCvc} onChange={(e) => set("cardCvc", e.target.value.replace(/\D/g, "").slice(0, 4))} placeholder="123" className={inputCls(errors.cardCvc)} />
-                    </Field>
-                    <Field label="Name on card *" id="cardName" error={errors.cardName}>
-                      <input id="cardName" type="text" value={form.cardName} onChange={(e) => set("cardName", e.target.value)} className={inputCls(errors.cardName)} />
-                    </Field>
-                  </div>
-                  <div className="flex gap-2 text-xs text-white/30">
-                    <Shield size={12} className="mt-0.5 flex-shrink-0" />
-                    <span>Your payment info is never stored on our servers. Processed securely via Stripe.</span>
-                  </div>
-                </div>
               </section>
 
               {submitError && (
