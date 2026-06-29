@@ -236,10 +236,8 @@ export const jerseys: Jersey[] = [
       { size: "2XL", inStock: true },
     ],
     images: [
-      "/placeholder.svg",
-      "/placeholder.svg",
-      "/placeholder.svg",
-      "/placeholder.svg",
+      "/jerseys/canada-home-1.jpeg",
+      "/jerseys/canada-home-2.jpeg",
     ],
   },
   {
@@ -273,6 +271,7 @@ export const jerseys: Jersey[] = [
     ],
     images: [
       "/jerseys/canada-away-1.jpeg",
+      "/jerseys/canada-away-2.jpeg",
     ],
   },
   {
@@ -307,6 +306,7 @@ export const jerseys: Jersey[] = [
     images: [
       "/jerseys/france-home-1.jpeg",
     ],
+
   },
   {
     id: "ar-h",
@@ -338,10 +338,7 @@ export const jerseys: Jersey[] = [
       { size: "2XL", inStock: false },
     ],
     images: [
-      "/placeholder.svg",
-      "/placeholder.svg",
-      "/placeholder.svg",
-      "/placeholder.svg",
+      "/jerseys/argentina-home-1.jpeg",
     ],
   },
   {
@@ -446,10 +443,8 @@ export const jerseys: Jersey[] = [
       { size: "2XL", inStock: true },
     ],
     images: [
-      "/placeholder.svg",
-      "/placeholder.svg",
-      "/placeholder.svg",
-      "/placeholder.svg",
+      "/jerseys/england-home-1.jpeg",
+      "/jerseys/england-home-2.jpeg",
     ],
   },
 ];
