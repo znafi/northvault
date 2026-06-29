@@ -31,10 +31,8 @@ export const jerseys: Jersey[] = [
       { size: "2XL", inStock: true },
     ],
     images: [
-      "/placeholder.svg",
-      "/placeholder.svg",
-      "/placeholder.svg",
-      "/placeholder.svg",
+      "/jerseys/brazil-home-1.jpeg",
+      "/jerseys/brazil-home-2.jpeg",
     ],
   },
   {
@@ -67,10 +65,8 @@ export const jerseys: Jersey[] = [
       { size: "2XL", inStock: true },
     ],
     images: [
-      "/placeholder.svg",
-      "/placeholder.svg",
-      "/placeholder.svg",
-      "/placeholder.svg",
+      "/jerseys/brazil-away-1.jpeg",
+      "/jerseys/brazil-away-2.jpeg",
     ],
   },
   {
@@ -103,10 +99,8 @@ export const jerseys: Jersey[] = [
       { size: "2XL", inStock: true },
     ],
     images: [
-      "/placeholder.svg",
-      "/placeholder.svg",
-      "/placeholder.svg",
-      "/placeholder.svg",
+      "/jerseys/mexico-home-1.jpeg",
+      "/jerseys/mexico-home-2.jpeg",
     ],
   },
   {
@@ -139,10 +133,9 @@ export const jerseys: Jersey[] = [
       { size: "2XL", inStock: true },
     ],
     images: [
-      "/placeholder.svg",
-      "/placeholder.svg",
-      "/placeholder.svg",
-      "/placeholder.svg",
+      "/jerseys/morocco-home-1.jpeg",
+      "/jerseys/morocco-home-2.jpeg",
+      "/jerseys/morocco-home-3.jpeg",
     ],
   },
   {
@@ -175,10 +168,8 @@ export const jerseys: Jersey[] = [
       { size: "2XL", inStock: true },
     ],
     images: [
-      "/placeholder.svg",
-      "/placeholder.svg",
-      "/placeholder.svg",
-      "/placeholder.svg",
+      "/jerseys/germany-home-1.jpeg",
+      "/jerseys/germany-home-2.jpeg",
     ],
   },
   {
@@ -189,9 +180,9 @@ export const jerseys: Jersey[] = [
     countryCode: "EG",
     region: "Africa",
     type: "Home",
-    maker: "adidas",
+    maker: "Puma",
     price: 99.99,
-    colorway: "Red",
+    colorway: "Red / Black",
     description:
       "The Pharaohs' striking red home shirt — a fan favourite across the diaspora.",
     highlights: [
@@ -211,10 +202,8 @@ export const jerseys: Jersey[] = [
       { size: "2XL", inStock: true },
     ],
     images: [
-      "/placeholder.svg",
-      "/placeholder.svg",
-      "/placeholder.svg",
-      "/placeholder.svg",
+      "/jerseys/egypt-home-1.jpeg",
+      "/jerseys/egypt-home-2.jpeg",
     ],
   },
   {
@@ -283,10 +272,7 @@ export const jerseys: Jersey[] = [
       { size: "2XL", inStock: true },
     ],
     images: [
-      "/placeholder.svg",
-      "/placeholder.svg",
-      "/placeholder.svg",
-      "/placeholder.svg",
+      "/jerseys/canada-away-1.jpeg",
     ],
   },
   {
@@ -319,10 +305,7 @@ export const jerseys: Jersey[] = [
       { size: "2XL", inStock: true },
     ],
     images: [
-      "/placeholder.svg",
-      "/placeholder.svg",
-      "/placeholder.svg",
-      "/placeholder.svg",
+      "/jerseys/france-home-1.jpeg",
     ],
   },
   {
