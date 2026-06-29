@@ -22,25 +22,19 @@ export function Gallery({ images, alt }: GalleryProps) {
             onClick={() => setActive(i)}
             className={cn(
               "flex-shrink-0 w-16 h-20 sm:w-14 sm:h-[72px] rounded-lg overflow-hidden border-2 transition-all",
-              active === i ? "border-brand" : "border-line-light hover:border-gray-400"
+              active === i ? "border-brand" : "border-line-dark hover:border-white/30"
             )}
             aria-label={`View image ${i + 1}`}
           >
-            <div className="relative w-full h-full bg-[#F2F2F2]">
-              <Image
-                src={src}
-                alt={`${alt} — view ${i + 1}`}
-                fill
-                className="object-cover"
-                sizes="64px"
-              />
+            <div className="relative w-full h-full bg-white/5">
+              <Image src={src} alt={`${alt} — view ${i + 1}`} fill className="object-cover" sizes="64px" />
             </div>
           </button>
         ))}
       </div>
 
       {/* Main image */}
-      <div className="relative flex-1 aspect-[3/4] bg-[#F2F2F2] rounded-xl overflow-hidden group cursor-zoom-in">
+      <div className="relative flex-1 aspect-[3/4] bg-white/5 rounded-xl overflow-hidden group cursor-zoom-in border border-line-dark">
         <Image
           src={images[active]}
           alt={`${alt} — main view`}

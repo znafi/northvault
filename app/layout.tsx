@@ -42,7 +42,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-CA" className={`${archivo.variable} ${inter.variable}`}>
-      <body className="min-h-screen flex flex-col bg-paper antialiased">
+      <body className="min-h-screen flex flex-col bg-ink antialiased text-white">
         <CartProvider>
           <AnnouncementBar />
           <Header />
