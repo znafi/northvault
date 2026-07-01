@@ -24,7 +24,6 @@ export const jerseys: Jersey[] = [
     rating: 4.9,
     reviewCount: 218,
     sizes: [
-      { size: "S", inStock: true },
       { size: "M", inStock: true },
       { size: "L", inStock: true },
       { size: "XL", inStock: true },
@@ -58,7 +57,6 @@ export const jerseys: Jersey[] = [
     rating: 4.8,
     reviewCount: 142,
     sizes: [
-      { size: "S", inStock: true },
       { size: "M", inStock: true },
       { size: "L", inStock: true },
       { size: "XL", inStock: true },
@@ -92,7 +90,6 @@ export const jerseys: Jersey[] = [
     rating: 4.8,
     reviewCount: 176,
     sizes: [
-      { size: "S", inStock: true },
       { size: "M", inStock: true },
       { size: "L", inStock: true },
       { size: "XL", inStock: true },
@@ -126,7 +123,6 @@ export const jerseys: Jersey[] = [
     rating: 4.9,
     reviewCount: 131,
     sizes: [
-      { size: "S", inStock: true },
       { size: "M", inStock: true },
       { size: "L", inStock: true },
       { size: "XL", inStock: true },
@@ -161,7 +157,6 @@ export const jerseys: Jersey[] = [
     rating: 4.7,
     reviewCount: 98,
     sizes: [
-      { size: "S", inStock: true },
       { size: "M", inStock: true },
       { size: "L", inStock: true },
       { size: "XL", inStock: true },
@@ -195,7 +190,6 @@ export const jerseys: Jersey[] = [
     rating: 4.7,
     reviewCount: 74,
     sizes: [
-      { size: "S", inStock: true },
       { size: "M", inStock: true },
       { size: "L", inStock: true },
       { size: "XL", inStock: true },
@@ -234,6 +228,7 @@ export const jerseys: Jersey[] = [
       { size: "L", inStock: true },
       { size: "XL", inStock: true },
       { size: "2XL", inStock: true },
+      { size: "3XL", inStock: true },
     ],
     images: [
       "/jerseys/canada-home-1.jpeg",
@@ -268,6 +263,7 @@ export const jerseys: Jersey[] = [
       { size: "L", inStock: true },
       { size: "XL", inStock: true },
       { size: "2XL", inStock: true },
+      { size: "3XL", inStock: true },
     ],
     images: [
       "/jerseys/canada-away-1.jpeg",
@@ -297,7 +293,6 @@ export const jerseys: Jersey[] = [
     rating: 4.8,
     reviewCount: 120,
     sizes: [
-      { size: "S", inStock: true },
       { size: "M", inStock: true },
       { size: "L", inStock: true },
       { size: "XL", inStock: true },
@@ -332,7 +327,6 @@ export const jerseys: Jersey[] = [
     rating: 5.0,
     reviewCount: 312,
     sizes: [
-      { size: "S", inStock: true },
       { size: "M", inStock: false },
       { size: "L", inStock: true },
       { size: "XL", inStock: true },
@@ -366,7 +360,6 @@ export const jerseys: Jersey[] = [
     rating: 4.8,
     reviewCount: 98,
     sizes: [
-      { size: "S", inStock: true },
       { size: "M", inStock: true },
       { size: "L", inStock: true },
       { size: "XL", inStock: true },
@@ -400,7 +393,6 @@ export const jerseys: Jersey[] = [
     rating: 4.8,
     reviewCount: 134,
     sizes: [
-      { size: "S", inStock: true },
       { size: "M", inStock: true },
       { size: "L", inStock: true },
       { size: "XL", inStock: true },
@@ -434,7 +426,6 @@ export const jerseys: Jersey[] = [
     rating: 4.7,
     reviewCount: 111,
     sizes: [
-      { size: "S", inStock: true },
       { size: "M", inStock: true },
       { size: "L", inStock: true },
       { size: "XL", inStock: true },
