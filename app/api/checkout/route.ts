@@ -37,68 +37,46 @@ export async function POST(req: NextRequest) {
       : STANDARD_SHIPPING;
   const tax = discountedSubtotal * TAX_RATE;
   const total = discountedSubtotal + shippingCost + tax;
+  const orderId = generateOrderId();
 
   const stripeKey = process.env.STRIPE_SECRET_KEY;
 
   if (!stripeKey) {
-    const orderId = generateOrderId();
     return NextResponse.json({
       mode: "demo",
       orderId,
+      total,
       redirectUrl: `/order/success?orderId=${orderId}&demo=1&email=${encodeURIComponent(email)}&total=${total.toFixed(2)}`,
     });
   }
 
   try {
-    const origin = req.headers.get("origin") ?? "https://www.northvault.shop";
-
-    // Build flat form-encoded params for Stripe REST API (same as curl)
-    const params: Record<string, string> = {
-      mode: "payment",
-      customer_email: email,
-      success_url: `${origin}/order/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${origin}/checkout`,
-      "metadata[promoCode]": promoCode ?? "",
-    };
-
-    lines.forEach((l, i) => {
-      const name = l.printing
-        ? `${l.name} (${l.size}) — Print: ${l.printing.name} #${l.printing.number}`
-        : `${l.name} (${l.size})`;
-      const amount = Math.round((l.unitPrice + (l.printing?.fee ?? 0)) * 100);
-      params[`line_items[${i}][price_data][currency]`] = "cad";
-      params[`line_items[${i}][price_data][product_data][name]`] = name;
-      params[`line_items[${i}][price_data][unit_amount]`] = String(amount);
-      params[`line_items[${i}][quantity]`] = String(l.qty);
-    });
-
-    let idx = lines.length;
-    if (shippingCost > 0) {
-      params[`line_items[${idx}][price_data][currency]`] = "cad";
-      params[`line_items[${idx}][price_data][product_data][name]`] = `Shipping (${shippingMethod})`;
-      params[`line_items[${idx}][price_data][unit_amount]`] = String(Math.round(shippingCost * 100));
-      params[`line_items[${idx}][quantity]`] = "1";
-      idx++;
-    }
-
-    const res = await fetch("https://api.stripe.com/v1/checkout/sessions", {
+    const res = await fetch("https://api.stripe.com/v1/payment_intents", {
       method: "POST",
       headers: {
         Authorization: `Basic ${Buffer.from(stripeKey + ":").toString("base64")}`,
         "Content-Type": "application/x-www-form-urlencoded",
       },
-      body: toFormBody(params),
+      body: toFormBody({
+        amount: String(Math.round(total * 100)),
+        currency: "cad",
+        "automatic_payment_methods[enabled]": "true",
+        receipt_email: email,
+        "metadata[orderId]": orderId,
+        "metadata[promoCode]": promoCode ?? "",
+        "metadata[shippingMethod]": shippingMethod,
+      }),
     });
 
-    const data = await res.json() as { url?: string; error?: { message: string } };
+    const pi = await res.json() as { client_secret?: string; error?: { message: string } };
 
     if (!res.ok) {
-      const msg = data.error?.message ?? `Stripe error ${res.status}`;
-      console.error("Stripe API error:", msg);
+      const msg = pi.error?.message ?? `Stripe error ${res.status}`;
+      console.error("Stripe error:", msg);
       return NextResponse.json({ error: msg }, { status: 500 });
     }
 
-    return NextResponse.json({ mode: "stripe", redirectUrl: data.url });
+    return NextResponse.json({ mode: "stripe", clientSecret: pi.client_secret, orderId, total });
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
     console.error("Checkout error:", message);
