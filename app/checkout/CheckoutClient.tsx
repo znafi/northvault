@@ -322,7 +322,7 @@ function CheckoutForm() {
                   </div>
 
                   {hasStripe ? (
-                    <PaymentElement options={{ layout: "tabs", wallets: { googlePay: "never", applePay: "never" } }} />
+                    <PaymentElement options={{ layout: "tabs" }} />
                   ) : (
                     <p className="text-sm text-white/50">Enter any details to place a demo order.</p>
                   )}
