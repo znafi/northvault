@@ -322,7 +322,7 @@ function CheckoutForm() {
                   </div>
 
                   {hasStripe ? (
-                    <PaymentElement options={{ layout: "tabs" }} />
+                    <PaymentElement options={{ layout: "tabs", wallets: { googlePay: "never", applePay: "never" } }} />
                   ) : (
                     <p className="text-sm text-white/50">Enter any details to place a demo order.</p>
                   )}
@@ -340,16 +340,22 @@ function CheckoutForm() {
                 </div>
               )}
 
-              <button
-                type="submit"
-                disabled={submitting || (hasStripe && !stripe)}
-                className="w-full flex items-center justify-center gap-2 bg-brand text-white font-archivo font-black uppercase tracking-wide text-sm py-4 rounded-xl hover:bg-brand/90 transition-colors disabled:opacity-60 disabled:cursor-not-allowed min-h-[52px]"
-              >
-                {submitting
-                  ? <><Loader2 size={18} className="animate-spin" /> Processing...</>
-                  : <><Lock size={16} /> Pay {formatCAD(total)}</>
-                }
-              </button>
+              {hasStripe && !stripe ? (
+                <div className="w-full flex items-center justify-center gap-2 bg-surface border border-line-dark text-white/40 text-sm py-4 rounded-xl min-h-[52px]">
+                  <Loader2 size={16} className="animate-spin" /> Loading payment…
+                </div>
+              ) : (
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className="w-full flex items-center justify-center gap-2 bg-brand text-white font-archivo font-black uppercase tracking-wide text-sm py-4 rounded-xl hover:bg-brand/90 transition-colors disabled:opacity-60 disabled:cursor-not-allowed min-h-[52px]"
+                >
+                  {submitting
+                    ? <><Loader2 size={18} className="animate-spin" /> Processing...</>
+                    : <><Lock size={16} /> Pay {formatCAD(total)}</>
+                  }
+                </button>
+              )}
             </div>
 
             {/* Order summary sidebar */}
