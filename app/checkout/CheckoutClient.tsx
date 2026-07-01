@@ -7,6 +7,21 @@ import { Lock, Shield, ChevronDown, Loader2, AlertCircle, CheckCircle, ArrowLeft
 import { useCart } from "@/contexts/CartContext";
 import { getCountryFlag, FREE_SHIPPING_THRESHOLD, STANDARD_SHIPPING, EXPRESS_SHIPPING, TAX_RATE } from "@/lib/data";
 
+function Field({ label, id, error, children }: { label: string; id: string; error?: string; children: React.ReactNode }) {
+  return (
+    <div>
+      <label htmlFor={id} className="block text-xs font-semibold text-white/70 mb-1">{label}</label>
+      {children}
+      {error && <p className="text-xs text-brand mt-1 flex items-center gap-1"><AlertCircle size={11} /> {error}</p>}
+    </div>
+  );
+}
+
+const inputCls = (error?: string) =>
+  `w-full bg-white/5 rounded-lg px-3 py-2.5 text-sm text-white placeholder:text-white/30 focus:outline-none transition-colors border ${
+    error ? "border-brand focus:border-brand" : "border-white/10 focus:border-brand"
+  }`;
+
 function formatCAD(n: number) {
   return new Intl.NumberFormat("en-CA", { style: "currency", currency: "CAD" }).format(n);
 }
@@ -114,21 +129,6 @@ export function CheckoutClient() {
       </div>
     );
   }
-
-  function Field({ label, id, error, children }: { label: string; id: string; error?: string; children: React.ReactNode }) {
-    return (
-      <div>
-        <label htmlFor={id} className="block text-xs font-semibold text-white/70 mb-1">{label}</label>
-        {children}
-        {error && <p className="text-xs text-brand mt-1 flex items-center gap-1"><AlertCircle size={11} /> {error}</p>}
-      </div>
-    );
-  }
-
-  const inputCls = (error?: string) =>
-    `w-full bg-white/5 rounded-lg px-3 py-2.5 text-sm text-white placeholder:text-white/30 focus:outline-none transition-colors border ${
-      error ? "border-brand focus:border-brand" : "border-white/10 focus:border-brand"
-    }`;
 
   return (
     <div className="bg-ink min-h-screen">
