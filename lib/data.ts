@@ -327,10 +327,10 @@ export const jerseys: Jersey[] = [
     rating: 5.0,
     reviewCount: 312,
     sizes: [
-      { size: "M", inStock: false },
+      { size: "M", inStock: true },
       { size: "L", inStock: true },
       { size: "XL", inStock: true },
-      { size: "2XL", inStock: false },
+      { size: "2XL", inStock: true },
     ],
     images: [
       "/jerseys/argentina-home-1.jpeg",
