@@ -10,7 +10,7 @@ export const jerseys: Jersey[] = [
     region: "South America",
     type: "Home",
     maker: "Nike",
-    price: 104.99,
+    price: 60.00,
     colorway: "Yellow / Green",
     description:
       "The iconic canarinho yellow with green trim. The most recognizable shirt in world football, refreshed for 2026.",
@@ -43,7 +43,7 @@ export const jerseys: Jersey[] = [
     region: "South America",
     type: "Away",
     maker: "Nike",
-    price: 104.99,
+    price: 60.00,
     colorway: "Royal Blue",
     description:
       "Brazil's deep royal-blue away kit — a bold alternate to the famous yellow.",
@@ -76,7 +76,7 @@ export const jerseys: Jersey[] = [
     region: "North America",
     type: "Home",
     maker: "adidas",
-    price: 99.99,
+    price: 60.00,
     colorway: "Green / White",
     description:
       "El Tri's vibrant green home shirt — one of the loudest selling kits in North America.",
@@ -109,7 +109,7 @@ export const jerseys: Jersey[] = [
     region: "Africa",
     type: "Home",
     maker: "Puma",
-    price: 99.99,
+    price: 60.00,
     colorway: "Red / Green",
     description:
       "The Atlas Lions' red home kit with green detailing — a runaway seller since 2022.",
@@ -143,7 +143,7 @@ export const jerseys: Jersey[] = [
     region: "Europe",
     type: "Home",
     maker: "adidas",
-    price: 99.99,
+    price: 60.00,
     colorway: "White / Black",
     description:
       "Die Mannschaft's classic white home shirt with crisp black accents.",
@@ -176,7 +176,7 @@ export const jerseys: Jersey[] = [
     region: "Africa",
     type: "Home",
     maker: "Puma",
-    price: 99.99,
+    price: 60.00,
     colorway: "Red / Black",
     description:
       "The Pharaohs' striking red home shirt — a fan favourite across the diaspora.",
@@ -209,7 +209,7 @@ export const jerseys: Jersey[] = [
     region: "North America",
     type: "Home",
     maker: "Nike",
-    price: 109.99,
+    price: 60.00,
     colorway: "Red / Maple",
     description:
       "The host nation's bold red home shirt with the maple leaf front and centre. The shirt of the summer.",
@@ -244,7 +244,7 @@ export const jerseys: Jersey[] = [
     region: "North America",
     type: "Away",
     maker: "Nike",
-    price: 109.99,
+    price: 60.00,
     colorway: "Black / Ice",
     description:
       "Canada's darker away kit with a cracked-ice maple-leaf graphic. Sharp, modern, sold out fast last drop.",
@@ -279,7 +279,7 @@ export const jerseys: Jersey[] = [
     region: "Europe",
     type: "Home",
     maker: "Nike",
-    price: 99.99,
+    price: 60.00,
     colorway: "Navy Blue",
     description:
       "Les Bleus' deep navy home shirt — always one of the top-selling kits of any tournament.",
@@ -313,7 +313,7 @@ export const jerseys: Jersey[] = [
     region: "South America",
     type: "Home",
     maker: "adidas",
-    price: 104.99,
+    price: 60.00,
     colorway: "Sky Blue / White",
     description:
       "The reigning champions' iconic sky-blue and white stripes. Demand is relentless — order early.",
@@ -346,7 +346,7 @@ export const jerseys: Jersey[] = [
     region: "South America",
     type: "Away",
     maker: "adidas",
-    price: 104.99,
+    price: 60.00,
     colorway: "Deep Purple",
     description:
       "Argentina's bold alternate away kit — a modern collector's favourite.",
@@ -379,7 +379,7 @@ export const jerseys: Jersey[] = [
     region: "Europe",
     type: "Home",
     maker: "Puma",
-    price: 99.99,
+    price: 60.00,
     colorway: "Deep Red / Green",
     description:
       "Portugal's rich red home shirt with green accents — a perennial top seller.",
@@ -412,7 +412,7 @@ export const jerseys: Jersey[] = [
     region: "Europe",
     type: "Home",
     maker: "Nike",
-    price: 99.99,
+    price: 60.00,
     colorway: "White / Navy",
     description:
       "The Three Lions' classic white home shirt with navy trim.",
